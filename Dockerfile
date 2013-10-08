@@ -3,7 +3,7 @@
 
 FROM isla/ubuntu-build-tools:python
 MAINTAINER Joaquin Garcia "joaquin@isla.io"
-RUN apt-get install python-software-properties
-RUN add-apt-repository ppa:chris-lea/node.js
-RUN apt-get update
-RUN apt-get install nodejs 
+RUN apt-get install -y python-software-properties
+RUN add-apt-repository -y ppa:chris-lea/node.js
+RUN apt-get -y update 
+RUN apt-get -y install nodejs 
