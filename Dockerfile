@@ -18,8 +18,9 @@ RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc
 RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates universe" >> /etc/apt/sources.list
 RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates universe" >> /etc/apt/sources.list
 
-
-
 RUN apt-get -y update
 RUN apt-get -y install git
-RUN apt-get -y install nodejs 
+RUN apt-get -y install nodejs
+
+RUN git clone https://github.com/joaquindev/docker-node.js
+
