@@ -6,4 +6,5 @@ RUN echo '# Added by install script for node.js and npm in 30s' >> ~/.bashrc; ec
 RUN mkdir -p ~/local
 RUN mkdir -p ~/Downloads/node-latest-install
 RUN cd ~/downloads/node-latest-install; curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1;
-RUN cd ~/downloads/node-latest-install; ./configure --prefix=~/local; make; make install
+RUN cd ~/downloads/node-latest-install; ./configure --dest-cpu=x64 --dest-os=linux; make; make install
+RUN adduser --system --group nodejs
