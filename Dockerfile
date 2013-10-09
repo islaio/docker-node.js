@@ -3,24 +3,17 @@
 
 FROM isla/ubuntu-build-tools:python
 MAINTAINER Joaquin Garcia "joaquin@isla.io"
-RUN apt-get install -y python-software-properties
-RUN add-apt-repository -y ppa:chris-lea/node.js
 
-##Adding sources.list data
-RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise main restricted" >> /etc/apt/sources.list
-RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise main restricted" >> /etc/apt/sources.list
-##Major bug fix updated produced after the final release of the distribution
-RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted" >> /etc/apt/sources.list
-RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted" >> /etc/apt/sources.list
-##Universe
-RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
-RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
-RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates universe" >> /etc/apt/sources.list
-RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates universe" >> /etc/apt/sources.list
+#Node.js
+RUN echo 'export PATH=$HOME/local/bin:$PATH' >> /.bashrc
+RUN . .bashrc
+RUN mkdir local
+RUN mkdir node-latest-install
+RUN cd node-latest-install
+RUN apt-get -y install curl
+RUN curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+RUN ./configure --prefix=/local
+RUN make install
+RUN curl https://npmjs.org/install.sh | sh
 
-RUN apt-get -y update
-RUN apt-get -y install git
-RUN apt-get -y install nodejs
-
-RUN wget https://raw.github.com/joaquindev/docker-node.js/master/Dockerfile
 
