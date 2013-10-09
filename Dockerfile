@@ -7,16 +7,17 @@ RUN apt-get install -y python-software-properties
 RUN add-apt-repository -y ppa:chris-lea/node.js
 
 ##Adding sources.list data
-deb http://us.archive.ubuntu.com/ubuntu/ precise main restricted
-deb-src http://us.archive.ubuntu.com/ubuntu/ precise main restricted
+RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise main restricted" >> /etc/apt/sources.list
+RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise main restricted" >> /etc/apt/sources.list
 ##Major bug fix updated produced after the final release of the distribution
-deb http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted
-deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted
+RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted" >> /etc/apt/sources.list
+RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates main restricted" >> /etc/apt/sources.list
 ##Universe
-deb http://us.archive.ubuntu.com/ubuntu/ precise universe
-deb-src http://us.archive.ubuntu.com/ubuntu/ precise universe
-deb http://us.archive.ubuntu.com/ubuntu/ precise-updates universe
-deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates universe
+RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
+RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
+RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise-updates universe" >> /etc/apt/sources.list
+RUN echo "deb-src http://us.archive.ubuntu.com/ubuntu/ precise-updates universe" >> /etc/apt/sources.list
+
 
 
 RUN apt-get -y update
