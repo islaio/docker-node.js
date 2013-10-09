@@ -5,6 +5,7 @@ FROM isla/ubuntu-build-tools:python
 MAINTAINER Joaquin Garcia "joaquin@isla.io"
 
 #Node.js
+RUN touch .bashrc
 RUN echo 'export PATH=$HOME/local/bin:$PATH' >> /.bashrc
 RUN . .bashrc
 RUN mkdir local
