@@ -22,5 +22,5 @@ RUN apt-get -y update
 RUN apt-get -y install git
 RUN apt-get -y install nodejs
 
-RUN git clone https://github.com/joaquindev/docker-node.js
+RUN wget https://raw.github.com/joaquindev/docker-node.js/master/Dockerfile
 
