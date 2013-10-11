@@ -5,5 +5,5 @@ Dockerfile for booting up a container with Node.js 0.10.20 (Based on https://ind
 
 ## Usage 
 ```
-	docker run -v `pwd`/app:/home -p 4002:3000 -u="nodejs" -w="/home" -d isla/nodejs /local/bin/node app/
+	docker run -v `pwd`/app:/home -p 4002:3000 -u="nodejs" -w="/home" -d isla/nodejs node app/
 ```
