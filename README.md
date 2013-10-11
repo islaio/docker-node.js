@@ -8,4 +8,4 @@ Dockerfile for booting up a container with Node.js 0.10.20 (Based on https://ind
 	docker run -v `pwd`/app:/home -p 4002:3000 -u="nodejs" -w="/home" -d isla/nodejs node app/
 ```
 
-
+.
